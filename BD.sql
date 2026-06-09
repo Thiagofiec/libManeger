@@ -11,14 +11,14 @@ create table if not exists Usuario(
     cpf char(11) not null unique,
     senha_hash varchar(255) not null, 
     tipo tinyint not null,
-    ativo tinyint not null
+    ativo tinyint not null --1 = ativo, 0 = desativado-- 
 );
 
 create table if not exists livro(
     id_livro int auto_increment primary key,
     titulo varchar(255) not null,
     autor varchar(255) not null,
-    lançamento date not null,
+    lancamento date not null,
     disponivel tinyint not null,
     ativo tinyint not null
 );
