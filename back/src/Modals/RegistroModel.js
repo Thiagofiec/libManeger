@@ -1,4 +1,4 @@
-BD = require('./BD')
+const BD = require('./BD')
 
 // pegar todos registros
 

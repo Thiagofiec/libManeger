@@ -1,4 +1,4 @@
-Modal = require('../Modals/LivroModel')
+const Modal = require('../Modals/LivroModel')
 
 // pegar todos livros
 

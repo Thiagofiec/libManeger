@@ -1,4 +1,4 @@
-BD = require('../config/BD')
+const BD = require('../config/BD')
 
 // pegar todos usuarios
 
