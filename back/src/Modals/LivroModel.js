@@ -48,10 +48,16 @@ exports.cadastrarLivro = async (req,res) => {
     try {
         const {titulo, autor, lancamento} = req.body
 
-        await BD.query(
+        resultado = await BD.query(
             'insert into livro(titulo,autor,lancamento,disponivel,ativo) values(?,?,?,1,1)',
             [titulo,autor,lancamento]
         )
+
+         if (resultado.affectedRows === 0) {
+            return res.status(404).json({
+                erro: 'Falha a cadastrar livro'
+            });
+        }
         
         res.json({
             mensagem: 'Livro cadastrado com sucesso'
