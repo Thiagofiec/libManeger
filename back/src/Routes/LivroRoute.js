@@ -1,11 +1,11 @@
 const LivroCon = require("../Controllers/LivroController")
 
 module.exports = app => {
-    app.get('/livros',LivroCon.getTodosLivros)
-    app.get('/livros/:id', LivroCon.getLivroId)
-    app.post('/livros/cadastrar', LivroCon.cadastrarLivro)
-    app.patch('/livros/:id/desativar', LivroCon.desativarLivro)
-    app.patch('/livros/:id/reativar', LivroCon.reativarLivro)
-    app.patch('/livros/:id/indisponibilizar', LivroCon.indisponibilizarLivro)
-    app.patch('/livros/:id/disponibilizar', LivroCon.disponibilizarLivro)
+    app.get('/',LivroCon.getTodosLivros)
+    app.get('/:id', LivroCon.getLivroId)
+    app.post('/cadastrar', LivroCon.cadastrarLivro)
+    app.patch('/:id/desativar', LivroCon.desativarLivro)
+    app.patch('/:id/reativar', LivroCon.reativarLivro)
+    app.patch('/:id/indisponibilizar', LivroCon.indisponibilizarLivro)
+    app.patch('/:id/disponibilizar', LivroCon.disponibilizarLivro)
 }
