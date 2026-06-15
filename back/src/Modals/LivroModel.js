@@ -25,7 +25,7 @@ exports.getId = async (id) => {
 
 exports.cadastrar = async (titulo,autor,lancamento) => {
     const [resultado] = await BD.query(
-        'insert into livro(titulo,autor,lancamento,disponivel,ativo) values(?,?,?,1,1)',
+        'insert into livro(titulo,autor,lançamento,disponivel,ativo) values(?,?,?,1,1)',
         [titulo,autor,lancamento]
     )
 
@@ -34,7 +34,7 @@ exports.cadastrar = async (titulo,autor,lancamento) => {
 
 //desativar livro
 
-exports.destivar = async (id) => {
+exports.desativar = async (id) => {
 
     const [resultado] = await BD.query(
         'update livro set ativo = 0 where id_livro = ?',

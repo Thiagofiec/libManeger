@@ -4,7 +4,7 @@ const Modal = require('../Modals/LivroModel')
 
 exports.getTodosLivros = async (req,res) => {
     try{
-        const rows = await Modal.getTodos().
+        const rows = await Modal.getTodos()
 
         res.json(rows)
     } catch (error) {
