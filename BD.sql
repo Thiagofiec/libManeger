@@ -10,7 +10,7 @@ create table if not exists Usuario(
     telefone varchar(14) not null unique,
     cpf char(11) not null unique,
     senha_hash varchar(255) not null, 
-    tipo tinyint not null,
+    tipo tinyint not null, --0 = user , 1 = admin--
     ativo tinyint not null --1 = ativo, 0 = desativado-- 
 );
 
