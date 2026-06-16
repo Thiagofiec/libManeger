@@ -25,7 +25,7 @@ exports.getId = async (id) => {
 
 exports.cadastrar = async (nome,email,telefone,cpf,senha,tipo) => {
     const [resultado] = await BD.query(
-        'insert into Usuario(nome,email,telefone,cpf,senha_hash,tipo,ativo) values(?,?,?,?,?,?,?,1)',
+        'insert into Usuario(nome,email,telefone,cpf,senha_hash,tipo,ativo) values(?,?,?,?,?,?,1)',
         [nome,email,telefone,cpf,senha,tipo]
     )
 
