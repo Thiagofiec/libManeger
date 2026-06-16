@@ -8,5 +8,6 @@ router.get('/:id', EmprestimoCon.getEmprestimoId)
 router.get('/usuario/:usuario', EmprestimoCon.getEmprestimoUsuario)
 router.get('/livro/:livro', EmprestimoCon.getEmprestimoLivro)
 router.post('/realizar', EmprestimoCon.realizarEmprestimo)
+router.patch('/:id/concluir', EmprestimoCon.concluirEmprestimo)
 
 module.exports = router;
