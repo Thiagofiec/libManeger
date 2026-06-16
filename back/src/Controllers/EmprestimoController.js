@@ -82,12 +82,12 @@ exports.realizarEmprestimo = async (req,res) => {
 
          if (resultado.affectedRows === 0) {
             return res.status(404).json({
-                erro: 'Falha a fazer registro'
+                erro: 'Falha a fazer emprestimo'
             });
         }
         
         res.json({
-            mensagem: 'Registro realizado com sucesso'
+            mensagem: 'Emprestimo realizado com sucesso'
         });
     } catch (error) {
         console.error('Database query error:', error);
