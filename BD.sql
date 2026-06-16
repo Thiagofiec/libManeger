@@ -26,7 +26,7 @@ create table if not exists livro(
 create table if not exists emprestimo(
     id int auto_increment primary key, 
     data_emprestimo date default (current_date),
-    concluido tinyint not null,
+    concluido tinyint not null, --0 = nao, 1 = sim--
     id_usuario int not null,
     id_livro int not null,
     foreign key (id_usuario) references Usuario(id_usuario),
