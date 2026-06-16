@@ -97,3 +97,29 @@ exports.realizarEmprestimo = async (req,res) => {
         })
     }
 }
+
+//concluir emprestimo
+
+exports.concluirEmprestimo = async (req,res) => {
+    try {
+        const { id } = req.params
+
+        const resultado = await Modal.concluir(id)
+
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({
+                erro: 'Emprestimo não encontrado'
+            });
+        }
+        
+        res.json({
+            mensagem: 'Emprestimo concluido com sucesso'
+        });
+    } catch (error) {
+        console.error('Database query error:', error);
+
+        res.status(500).json({
+            erro: 'Erro interno do servidor'
+        })
+    }
+}
