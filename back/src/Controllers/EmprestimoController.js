@@ -42,7 +42,7 @@ exports.getEmprestimoId = async (req,res) => {
 
 exports.getEmprestimoUsuario = async (req,res) => {
     try {
-        const { usuario } = req.body 
+        const { usuario } = req.params 
         const rows = await Modal.getByUsuario(usuario)
 
         res.json(rows)
@@ -59,7 +59,7 @@ exports.getEmprestimoUsuario = async (req,res) => {
 
 exports.getEmprestimoLivro = async (req,res) => {
     try {
-        const { livro } = req.body 
+        const { livro } = req.params 
         const rows = await Modal.getByLivro(livro)
 
         res.json(rows)
