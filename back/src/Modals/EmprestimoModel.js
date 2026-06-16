@@ -42,7 +42,7 @@ exports.getByLivro = async (livro) => {
 
 // fazer registro 
 
-exports.cadastrar = async (usuario, livro) => {
+exports.registrar = async (usuario, livro) => {
     const [resultado] = await BD.query(
         'insert into emprestimo(concluido,id_usuario,id_livro) values(0,?,?)',
         [usuario,livro]
