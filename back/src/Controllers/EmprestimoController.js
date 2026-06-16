@@ -1,6 +1,6 @@
 const Modal = require('../Modals/RegistroModel')
 
-// pegar todos registros
+// pegar todos emprestimos 
 
 exports.getTodosEmprestimos = async (req,res) => {
     try{
@@ -17,7 +17,7 @@ exports.getTodosEmprestimos = async (req,res) => {
     }
 }
 
-//pegar registro pelo id
+//pegar emprestimo pelo id
 
 exports.getEmprestimoId = async (req,res) => {
     try {
@@ -38,7 +38,7 @@ exports.getEmprestimoId = async (req,res) => {
     }
 }
 
-//pegar registros de um usuario
+//pegar emprestimos de um usuario
 
 exports.getEmprestimoUsuario = async (req,res) => {
     try {
@@ -55,7 +55,7 @@ exports.getEmprestimoUsuario = async (req,res) => {
     }
 }
 
-//pegar registros de um livro
+//pegar emprestimos de um livro
 
 exports.getEmprestimoLivro = async (req,res) => {
     try {
@@ -72,7 +72,7 @@ exports.getEmprestimoLivro = async (req,res) => {
     }
 }
 
-// fazer registro 
+// realizar emprestimo
 
 exports.realizarEmprestimo = async (req,res) => {
     try {
