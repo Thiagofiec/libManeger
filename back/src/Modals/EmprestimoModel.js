@@ -1,6 +1,6 @@
 const BD = require('../config/BD')
 
-// pegar todos registros
+// pegar todos emprestimos
 
 exports.getTodos = async () => {
         const [rows] = await  BD.query(
@@ -10,7 +10,7 @@ exports.getTodos = async () => {
         return rows
 }
 
-//pegar registro pelo id
+//pegar emprestimo pelo id
 
 exports.getId = async (id) => {
         const [rows] = await BD.query(
@@ -20,7 +20,7 @@ exports.getId = async (id) => {
         return rows 
     } 
 
-//pegar registros de um usuario
+//pegar emprestimos de um usuario
 
 exports.getByUsuario = async (usuario) => {
         const [rows] = await BD.query(
@@ -30,7 +30,7 @@ exports.getByUsuario = async (usuario) => {
         return rows 
     } 
 
-//pegar registros de um livro
+//pegar emprestimos de um livro
 
 exports.getByLivro = async (livro) => {
         const [rows] = await BD.query(
@@ -40,7 +40,7 @@ exports.getByLivro = async (livro) => {
         return rows 
     } 
 
-// fazer registro 
+// fazer emprestimo
 
 exports.registrar = async (usuario, livro) => {
     const [resultado] = await BD.query(
@@ -51,3 +51,14 @@ exports.registrar = async (usuario, livro) => {
     return resultado      
 }
 
+// concluir emprestimo
+
+exports.concluir = async (id) => {
+
+    const [resultado] = await BD.query(
+        'update emprestimo set concluido = 1 where id = ?',
+        [id]
+    )
+
+    return resultado
+}
