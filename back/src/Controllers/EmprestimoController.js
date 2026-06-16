@@ -1,4 +1,4 @@
-const Modal = require('../Modals/RegistroModel')
+const Modal = require('../Modals/EmprestimoModel')
 
 // pegar todos emprestimos 
 
