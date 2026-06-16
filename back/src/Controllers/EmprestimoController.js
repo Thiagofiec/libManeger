@@ -76,7 +76,7 @@ exports.getEmprestimoLivro = async (req,res) => {
 
 exports.realizarEmprestimo = async (req,res) => {
     try {
-        const {} = req.body
+        const {usuario, livro} = req.body
 
         const resultado = await Modal.registrar(usuario,livro)
 
