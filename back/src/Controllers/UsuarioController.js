@@ -142,10 +142,10 @@ exports.entrarUsuario = async (req,res) => {
                 process.env.JWT_SECRET,
                 { expiresIn: '5h' }
             )
-            //mamdar p token deve ser res mas não tenho certeza ou tempo para verificar agora 
+            return res.json({ auth: true, token});
         } else {
-            return res.json({
-                erro: 'Senha invalida'
+            return res.status(401).json({
+                erro: 'Login invalido'
             });
         }
     }  catch (error) {
