@@ -1,3 +1,8 @@
+const bcrypt = require('bcryptjs')
+require('dotenv').config();
+
+const saltRounds = Number(process.env.SALTROUNDS)
+
 const Modal = require('../Modals/UsuarioModel')
 
 // pegar todos usuarios
@@ -26,7 +31,7 @@ exports.getUsuarioId = async (req,res) => {
         if (rows.length === 0) {
             return res.status(404).json({
                 erro: 'usuario não encontrado'
-            });
+            });0
 }
         res.json(rows[0])
     } catch (error) {
@@ -44,7 +49,11 @@ exports.cadastrarUsuario = async (req,res) => {
     try {
         const {nome,email,telefone,cpf,senha,tipo} = req.body
 
-        const resultado = await Modal.cadastrar(nome,email,telefone,cpf,senha,tipo)
+        const salt = await bcrypt.genSalt(saltRounds);
+
+        const senha_hash = await bcrypt.hash(senha, salt);
+
+        const resultado = await Modal.cadastrar(nome,email,telefone,cpf,senha_hash,tipo)
 
          if (resultado.affectedRows === 0) {
             return res.status(404).json({
