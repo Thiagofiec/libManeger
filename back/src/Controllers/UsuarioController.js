@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
 require('dotenv').config();
 
@@ -117,6 +118,37 @@ exports.reativarUsuario = async (req,res) => {
             mensagem: 'Usuario reativado com sucesso'
         });
     } catch (error) {
+        console.error('Database query error:', error);
+
+        res.status(500).json({
+            erro: 'Erro interno do servidor'
+        })
+    }
+}
+
+// login do usuario
+
+exports.entrarUsuario = async (req,res) => {
+    try {
+        const {email,senha} = req.body
+
+        const senha_hash = Modal.login(email)
+
+        const match = bcrypt.compare(senha,senha_hash)
+
+        if (match){
+            const token = jwt.sign(
+                { email: email },
+                process.env.JWT_SECRET,
+                { expiresIn: '5h' }
+            )
+            //mamdar p token deve ser res mas não tenho certeza ou tempo para verificar agora 
+        } else {
+            return res.json({
+                erro: 'Senha invalida'
+            });
+        }
+    }  catch (error) {
         console.error('Database query error:', error);
 
         res.status(500).json({
