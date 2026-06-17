@@ -55,4 +55,16 @@ exports.reativar = async (id) => {
 
     return resultado
 }
+
+// login do usuario/ pegar usuario por email
+
+exports.login = async (email) => {
+
+    const [row] = await BD.query(
+        'SELECT senha_hash FROM usuario where email = ?',
+        [email]
+    )
+
+    return row
+}
       
