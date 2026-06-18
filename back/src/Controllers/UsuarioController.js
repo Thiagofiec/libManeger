@@ -132,9 +132,9 @@ exports.entrarUsuario = async (req,res) => {
     try {
         const {email,senha} = req.body
 
-        const senha_hash = Modal.login(email)
+        const senha_hash = await Modal.login(email)
 
-        const match = bcrypt.compare(senha,senha_hash)
+        const match = await bcrypt.compare(senha,senha_hash)
 
         if (match){
             const token = jwt.sign(
