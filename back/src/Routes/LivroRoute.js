@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
+const Auth = require("../middlewares/Auth")
 const LivroCon = require("../Controllers/LivroController")
 
-router.get('/',LivroCon.getTodosLivros)
-router.get('/:id', LivroCon.getLivroId)
-router.post('/cadastrar', LivroCon.cadastrarLivro)
-router.patch('/:id/desativar', LivroCon.desativarLivro)
-router.patch('/:id/reativar', LivroCon.reativarLivro)
-router.patch('/:id/indisponibilizar', LivroCon.indisponibilizarLivro)
-router.patch('/:id/disponibilizar', LivroCon.disponibilizarLivro)
+router.get('/',Auth, LivroCon.getTodosLivros)
+router.get('/:id',Auth, LivroCon.getLivroId)
+router.post('/cadastrar',Auth, LivroCon.cadastrarLivro)
+router.patch('/:id/desativar',Auth, LivroCon.desativarLivro)
+router.patch('/:id/reativar',Auth, LivroCon.reativarLivro)
+router.patch('/:id/indisponibilizar',Auth, LivroCon.indisponibilizarLivro)
+router.patch('/:id/disponibilizar',Auth, LivroCon.disponibilizarLivro)
 
 module.exports = router;

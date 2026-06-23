@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
+const Auth = require("../middlewares/Auth")
 const EmprestimoCon = require("../Controllers/EmprestimoController")
 
-router.get('/',EmprestimoCon.getTodosEmprestimos)
-router.get('/:id', EmprestimoCon.getEmprestimoId)
-router.get('/usuario/:usuario', EmprestimoCon.getEmprestimoUsuario)
-router.get('/livro/:livro', EmprestimoCon.getEmprestimoLivro)
-router.post('/realizar', EmprestimoCon.realizarEmprestimo)
-router.patch('/:id/concluir', EmprestimoCon.concluirEmprestimo)
+router.get('/',Auth, EmprestimoCon.getTodosEmprestimos)
+router.get('/:id',Auth, EmprestimoCon.getEmprestimoId)
+router.get('/usuario/:usuario',Auth, EmprestimoCon.getEmprestimoUsuario)
+router.get('/livro/:livro',Auth, EmprestimoCon.getEmprestimoLivro)
+router.post('/realizar',Auth, EmprestimoCon.realizarEmprestimo)
+router.patch('/:id/concluir',Auth, EmprestimoCon.concluirEmprestimo)
 
 module.exports = router;
