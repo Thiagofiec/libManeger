@@ -65,6 +65,6 @@ exports.login = async (email) => {
         [email]
     )
 
-    return row
+    return row[0] || null
 }
       
