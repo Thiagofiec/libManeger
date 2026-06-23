@@ -61,7 +61,7 @@ exports.reativar = async (id) => {
 exports.login = async (email) => {
 
     const [row] = await BD.query(
-        'SELECT senha_hash FROM usuario where email = ?',
+        'SELECT id_usuario,email,senha_hash FROM usuario where email = ?',
         [email]
     )
 
